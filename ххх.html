@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixora — Фото и видео</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+        <span class="logo-icon">✦</span>
+        Pixora
+    </div>
+
+    <nav>
+        <button class="nav-btn active" data-section="home">Главная</button>
+        <button class="nav-btn" data-section="upload">Загрузить</button>
+    </nav>
+
+    <div class="account-area" id="accountArea">
+        <button class="login-btn" id="loginOpen">Войти</button>
+        <button class="register-btn" id="registerOpen">Регистрация</button>
+    </div>
+</header>
+
+<main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="badge">✨ Твоя личная медиагалерея</div>
+
+            <h1>
+                Делись моментами.<br>
+                <span>Сохраняй эмоции.</span>
+            </h1>
+
+            <p>
+                Загружай фотографии и видео, получай лайки
+                и создавай свою красивую коллекцию.
+            </p>
+
+            <button class="hero-btn" id="heroUpload">
+                + Загрузить медиа
+            </button>
+        </div>
+
+        <div class="hero-decoration">
+            <div class="floating-card card-one">🌅</div>
+            <div class="floating-card card-two">🏔️</div>
+            <div class="floating-card card-three">🌊</div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-section">
+        <div class="section-title">
+            <div>
+                <span class="small-title">ПОСЛЕДНИЕ ПУБЛИКАЦИИ</span>
+                <h2>Галерея</h2>
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter active" data-filter="all">Все</button>
+                <button class="filter" data-filter="image">Фото</button>
+                <button class="filter" data-filter="video">Видео</button>
+            </div>
+        </div>
+
+        <div class="gallery" id="gallery"></div>
+
+        <div class="empty-state" id="emptyState">
+            <div class="empty-icon">📷</div>
+            <h3>Пока здесь пусто</h3>
+            <p>Загрузи первое фото или видео.</p>
+        </div>
+    </section>
+
+    <!-- UPLOAD -->
+    <section class="upload-section" id="upload">
+        <div class="upload-box">
+            <div class="upload-icon">☁️</div>
+            <h2>Загрузи свой момент</h2>
+            <p>Поддерживаются изображения и видео</p>
+
+            <label class="file-label">
+                Выбрать файл
+                <input type="file" id="fileInput" accept="image/*,video/*">
+            </label>
+
+            <div class="upload-preview" id="uploadPreview"></div>
+
+            <input
+                type="text"
+                id="captionInput"
+                class="caption-input"
+                placeholder="Добавь описание..."
+            >
+
+            <button class="publish-btn" id="publishBtn">
+                Опубликовать
+            </button>
+        </div>
+    </section>
+
+</main>
+
+<!-- VIEW MODAL -->
+<div class="modal" id="viewModal">
+    <div class="modal-overlay"></div>
+
+    <div class="view-modal">
+        <button class="close-btn" id="viewClose">×</button>
+
+        <div id="modalMedia"></div>
+
+        <div class="modal-info">
+            <div>
+                <strong id="modalAuthor">Автор</strong>
+                <p id="modalCaption"></p>
+            </div>
+
+            <button class="modal-like" id="modalLike">
+                ♡ <span>0</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal" id="authModal">
+    <div class="modal-overlay"></div>
+
+    <div class="auth-modal">
+        <button class="close-btn" id="authClose">×</button>
+
+        <div class="auth-logo">✦</div>
+
+        <h2 id="authTitle">Вход</h2>
+        <p id="authSubtitle">Войди в свой аккаунт Pixora</p>
+
+        <form id="authForm">
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Имя пользователя"
+                required
+            >
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Пароль"
+                required
+            >
+
+            <button class="auth-submit" type="submit">
+                Войти
+            </button>
+        </form>
+
+        <button class="switch-auth" id="switchAuth">
+            Нет аккаунта? Зарегистрироваться
+        </button>
+
+        <div class="auth-message" id="authMessage"></div>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
